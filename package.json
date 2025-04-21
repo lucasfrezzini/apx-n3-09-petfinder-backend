@@ -6,7 +6,6 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev:front": "vite",
     "dev:back": "nodemon -w src/server -x tsx src/server/main.ts",
     "start": "NODE_ENV=production tsx src/server/main.ts",
     "build": "vite build"
