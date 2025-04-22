@@ -17,7 +17,11 @@ import { reportRoutes } from "./routes/reportRoutes.js";
 // Report.sync({ force: true });
 
 const app = express();
-const whitelist = ["http://localhost:5173", process.env.ORIGIN];
+const whitelist = [
+  "http://localhost:5173",
+  process.env.ORIGIN,
+  "https://petrescueapx.up.railway.app/",
+];
 const corsOptions = {
   origin: function (origin: any, callback: any) {
     if (whitelist.includes(origin)) {
