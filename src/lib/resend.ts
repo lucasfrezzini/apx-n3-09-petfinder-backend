@@ -14,7 +14,7 @@ export function sendEmailByResend(
 
   resend.emails.send({
     from: `${from} <onboarding@resend.dev>`,
-    to: [to],
+    to: to,
     // to: "luquiitas.f@gmail.com",
     subject,
     html,
