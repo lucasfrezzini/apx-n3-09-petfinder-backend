@@ -17,7 +17,17 @@ import { reportRoutes } from "./routes/reportRoutes.js";
 // Report.sync({ force: true });
 
 const app = express();
-app.use(cors());
+const whitelist = ["http://localhost:5173", process.env.ORIGIN];
+const corsOptions = {
+  origin: function (origin: any, callback: any) {
+    if (whitelist.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+app.use(cors(corsOptions));
 app.use(express.json({ limit: "50mb" }));
 
 app.use("/api", authRoutes);
