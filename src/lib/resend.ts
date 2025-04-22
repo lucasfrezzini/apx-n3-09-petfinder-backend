@@ -9,6 +9,9 @@ export function sendEmailByResend(
   subject: string,
   html: string
 ) {
+  console.log("Sending email to", to);
+  console.log("Sending email from", from);
+
   resend.emails.send({
     from: `${from} <onboarding@resend.dev>`,
     to: [to],
