@@ -20,7 +20,7 @@ const app = express();
 const whitelist = [
   "http://localhost:5173",
   process.env.ORIGIN,
-  "https://petrescueapx.up.railway.app/",
+  "https://petrescueapx.up.railway.app",
 ];
 const corsOptions = {
   origin: function (origin: any, callback: any) {
@@ -30,6 +30,8 @@ const corsOptions = {
       callback(new Error("Not allowed by CORS"));
     }
   },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 app.use(cors(corsOptions));
 app.use(express.json({ limit: "50mb" }));
